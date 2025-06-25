@@ -13,35 +13,44 @@ This template provides a minimal setup to get React working in Vite with HMR and
 
 ## Getting Started
 
-1. **Install dependencies:**
+1. **Clone the repo:**
 
 ```bash
+git clone git@github.com:ElizabethSh/vite-template.git some_new_project
+```
+
+2. **Open new project and install dependencies:**
+
+```bash
+cd some_new_project
 npm install
 ```
 
-2. **Start the development server:**
+3. **Start the development server:**
 
 ```bash
 npm start
 ```
 
-3. **Build for production:**
+4. **Build for production:**
 
 ```bash
 npm run build
 ```
 
-4. **Run linting**
+5. **Run linting**
 
 ```bash
 npm run lint
 ```
 
-5. **Run tests**
+6. **Run tests**
 
 ```bash
 npm run test
 ```
+
+7. **Create new project in GitHub and add new repo**
 
 ## Project Structure
 
