@@ -4,6 +4,7 @@ import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
 import tseslint from "typescript-eslint";
+import jsxA11y from "eslint-plugin-jsx-a11y";
 
 export default tseslint.config(
   { ignores: ["dist"] },
@@ -13,8 +14,15 @@ export default tseslint.config(
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
+        sourceType: "module",
+      },
     },
     plugins: {
+      "jsx-a11y": jsxA11y,
       "react-hooks": reactHooks,
       "react-refresh": reactRefresh,
       "simple-import-sort": simpleImportSort,
@@ -48,6 +56,7 @@ export default tseslint.config(
           ],
         },
       ],
+      ...jsxA11y.configs.recommended.rules,
     },
   }
 );
