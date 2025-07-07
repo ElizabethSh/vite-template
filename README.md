@@ -101,7 +101,7 @@ vite-template/
 
 - **Strict mode enabled** - Maximum type safety with enhanced rules
 - **Modern ES2022 target** - Latest JavaScript features and optimizations
-- **Path aliases configured** - Clean imports with `@/*`, `@components/*`, `@utils/*`, `@assets/*`
+- **Path aliases configured** - Clean imports with `@components/*`, `@utils/*`, `@assets/*`
 - **Enhanced type checking** - `exactOptionalPropertyTypes`, `noUncheckedIndexedAccess`, `noImplicitReturns`
 - **Bundler optimized** - Perfect integration with Vite's bundler mode
 - **Project references** - Optimized build performance with caching
