@@ -137,7 +137,7 @@ import type { ButtonHTMLAttributes } from "react";
 import "./button.scss";
 
 type ButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "type"> & {
-  variant?: "primary" | "secondary" | "danger";
+  variant?: "primary" | "confirm" | "danger";
   // ... other props
 };
 
