@@ -11,7 +11,8 @@ A modern, production-ready React template with TypeScript, comprehensive testing
 - 🧪 **Testing Ready** - Vitest + React Testing Library + Coverage reports
 - 🎨 **Styling** - Sass/SCSS support with CSS modules ready
 - 📱 **Accessibility** - jsx-a11y rules for inclusive design
-- 🔧 **Path Aliases** - Clean imports with `@components/*`, `@utils/*` etc.
+- 🔧 **Enhanced Path Aliases** - Clean imports with `@/*`, `@components/*`, `@utils/*`, `@assets/*`
+- 🛡️ **Strict TypeScript** - ES2022 target with enhanced type safety rules
 - 📦 **Optimized Bundle** - Tree-shaking and code splitting out of the box
 
 ## 📋 Requirements
@@ -79,6 +80,7 @@ vite-template/
 │   │       ├── button.scss
 │   │       └── button.test.tsx
 │   ├── pages/             # Page components
+│   ├── types/             # TypeScript type definitions
 │   ├── app.tsx            # Main App component
 │   ├── main.tsx           # Application entry point
 │   ├── index.scss         # Global styles
@@ -97,10 +99,12 @@ vite-template/
 
 ### TypeScript
 
-- **Strict mode enabled** - Maximum type safety
-- **Path aliases configured** - Clean imports with `@components/*`, `@utils/*`
-- **Modern target** - ES2020+ with latest features
-- **Project references** - Optimized build performance
+- **Strict mode enabled** - Maximum type safety with enhanced rules
+- **Modern ES2022 target** - Latest JavaScript features and optimizations
+- **Path aliases configured** - Clean imports with `@/*`, `@components/*`, `@utils/*`, `@assets/*`
+- **Enhanced type checking** - `exactOptionalPropertyTypes`, `noUncheckedIndexedAccess`, `noImplicitReturns`
+- **Bundler optimized** - Perfect integration with Vite's bundler mode
+- **Project references** - Optimized build performance with caching
 
 ### ESLint
 
@@ -138,8 +142,24 @@ type ButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "type"> & {
 };
 
 export default function Button({ variant = "primary", ...props }: ButtonProps) {
-  // Implementation
+  // Implementation with path aliases
+  // import utils from "@utils/helpers";
+  // import { MyType } from "@types/common";
 }
+```
+
+### Path Alias Usage Examples
+
+```tsx
+// Instead of relative imports
+import Button from "../../../../components/button";
+import { formatDate } from "../../../utils/date";
+
+// Use clean path aliases
+import Button from "@components/button";
+import { formatDate } from "@utils/date";
+import type { User } from "@types/user";
+import logo from "@assets/logo.svg";
 ```
 
 ### Testing Examples
@@ -165,11 +185,34 @@ describe("Button", () => {
 // tsconfig.app.json
 {
   "compilerOptions": {
+    "baseUrl": "./src",
     "paths": {
-      "@components/*": ["components/*"],
-      "@utils/*": ["utils/*"],
-      "@hooks/*": ["hooks/*"]
+      "@/*": ["./*"], // Root src access
+      "@components/*": ["components/*"], // UI components
+      "@utils/*": ["utils/*"], // Utility functions
+      "@hooks/*": ["hooks/*"], // Custom React hooks
+      "@assets/*": ["assets/*"], // Images, icons, etc.
+      "@types/*": ["types/*"], // Type definitions
+      "@pages/*": ["pages/*"], // Page components
+      "@settings": ["settings.ts"] // App configuration
     }
+  }
+}
+```
+
+### TypeScript Strict Rules
+
+The template includes enhanced TypeScript rules for better code quality:
+
+```json
+// tsconfig.app.json - Enhanced type safety
+{
+  "compilerOptions": {
+    "exactOptionalPropertyTypes": true, // Stricter optional properties
+    "noImplicitReturns": true, // All paths must return
+    "noImplicitOverride": true, // Explicit override keyword
+    "noPropertyAccessFromIndexSignature": true, // Safer property access
+    "noUncheckedIndexedAccess": true // Safer array/object indexing
   }
 }
 ```
