@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-    "target": "ES2020",
+    "target": "ES2022",
     "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
     "types": ["vitest/globals", "@testing-library/jest-dom"],
@@ -20,6 +20,11 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "exactOptionalPropertyTypes": true, // Prevents undefined assignment to optional properties
+    "noImplicitReturns": true, // Catches missing return statements
+    "noImplicitOverride": true, // Ensures overrides are explicit
+    "noPropertyAccessFromIndexSignature": true, // Prevents accessing properties from index signatures without type checks
+    "noUncheckedIndexedAccess": true, // Ensures all indexed accesses are checked for undefined
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
@@ -29,12 +34,11 @@
       "@components/*": ["components/*"],
       "@hooks/*": ["hooks/*"],
       "@pages/*": ["pages/*"],
-      "@settings": ["settings.ts"],
-      "@utils/*": ["utils.ts"],
-      "types/*": ["types/*"]
-      // add more aliases here
-    },
-    "outDir": "./dist"
+      "@assets/*": ["assets/*"],
+      "@utils/*": ["utils/*"],
+      "@types/*": ["types/*"],
+      "@settings": ["settings.ts"]
+    }
   },
   "include": ["src"]
 }

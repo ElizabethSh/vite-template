@@ -12,7 +12,7 @@ export default tseslint.config(
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
     files: ["**/*.{ts,tsx}"],
     languageOptions: {
-      ecmaVersion: 2020,
+      ecmaVersion: 2024,
       globals: globals.browser,
       parserOptions: {
         ecmaFeatures: {
@@ -33,6 +33,17 @@ export default tseslint.config(
         "warn",
         { allowConstantExport: true },
       ],
+      // TypeScript specific rules
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
+      ],
+      "@typescript-eslint/consistent-type-imports": [
+        "error",
+        { prefer: "type-imports" },
+      ],
+      "@typescript-eslint/no-explicit-any": "warn",
+      // Import sorting
       "simple-import-sort/imports": [
         "error",
         {
@@ -40,9 +51,7 @@ export default tseslint.config(
             // Packages. `react` related packages come first.
             ["^react", "^@?\\w"],
             // Internal packages.
-            [
-              "^(components|utils|hooks|config|vendored-lib|settings|types)(/.*|$)",
-            ],
+            ["^(components|utils|hooks|config|settings|types)(/.*|$)"],
             // Side effect imports.
             ["^\\u0000"],
             // Parent imports. Put `..` last.
@@ -56,7 +65,26 @@ export default tseslint.config(
           ],
         },
       ],
+      "simple-import-sort/exports": "error",
       ...jsxA11y.configs.recommended.rules,
+    },
+  },
+  // Enhanced TypeScript rules for src files only
+  {
+    extends: [...tseslint.configs.recommendedTypeChecked],
+    files: ["src/**/*.{ts,tsx}"],
+    languageOptions: {
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
+  },
+  // Test files configuration
+  {
+    files: ["**/*.test.{ts,tsx}", "**/*.spec.{ts,tsx}"],
+    rules: {
+      "@typescript-eslint/no-explicit-any": "off",
     },
   }
 );
