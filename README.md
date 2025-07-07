@@ -296,7 +296,7 @@ npm run preview
 
 ## 📄 License
 
-MIT © [Lisa Shoshkina](https://https://github.com/ElizabethSh)
+MIT © [Lisa Shoshkina](https://github.com/ElizabethSh)
 
 ---
 
