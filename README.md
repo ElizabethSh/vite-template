@@ -11,7 +11,7 @@ A modern, production-ready React template with TypeScript, comprehensive testing
 - 🧪 **Testing Ready** - Vitest + React Testing Library + Coverage reports
 - 🎨 **Styling** - Sass/SCSS support with CSS modules ready
 - 📱 **Accessibility** - jsx-a11y rules for inclusive design
-- 🔧 **Enhanced Path Aliases** - Clean imports with `@/*`, `@components/*`, `@utils/*`, `@assets/*`
+- 🔧 **Enhanced Path Aliases** - Clean imports with `@components/*`, `@utils/*`, `@assets/*`, `@types/*`
 - 🛡️ **Strict TypeScript** - ES2022 target with enhanced type safety rules
 - 📦 **Optimized Bundle** - Tree-shaking and code splitting out of the box
 
@@ -187,7 +187,6 @@ describe("Button", () => {
   "compilerOptions": {
     "baseUrl": "./src",
     "paths": {
-      "@/*": ["./*"], // Root src access
       "@components/*": ["components/*"], // UI components
       "@utils/*": ["utils/*"], // Utility functions
       "@hooks/*": ["hooks/*"], // Custom React hooks
